@@ -9,12 +9,12 @@
 # read in data raw
 file_not_all<-paste0(files, "results_", gsub(" ", "_", time_period), ".csv")
 df<-read.csv(file_not_all,row.names = 1)
-# file_all_HZ<-paste0(files, "results_", gsub(" ", "_", time_period), "_with_additional_HZ.csv")
-# if(time_period!="November 2019"){
-#   df_all<-read.csv(file_all_HZ,row.names = 1)
-# }else{
-#   df_all<-NULL
-# }
+file_all_HZ<-paste0(files, "results_", gsub(" ", "_", time_period), "_additional_HZ.csv")
+if(time_period!="November 2019"){
+  df_all<-read.csv(file_all_HZ,row.names = 1)
+}else{
+  df_all<-NULL
+}
 
 # read in cumulative data 
 file_cm<-paste0(files, "results_", gsub(" ", "_", time_period), "_cm.csv")
@@ -63,12 +63,12 @@ plot_4<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
   labs(colour= "Expert and date")
 
 # # plot with all HZ rated by >=5 experts (>=4 experts for Feb)
-# plot_1_all<-ggplot(data=df_all, aes(x=low_bin, y=(p), col=expert.date))+
-#   geom_line()+facet_wrap(~HZ)+theme_bw()+
-#   geom_line(data=df_all, aes(x=low_bin, y= p.all.experts), col="black", size=1)+
-#   scale_y_continuous(limits = c(0,1), breaks=seq(0,1, by=0.1), name="Probability")+
-#   scale_x_continuous(name=paste("Predicted new EVD cases reported (confirmed+probable) during",time_period))+
-#   labs(colour= "Expert and date")
+plot_1_all<-ggplot(data=df_all, aes(x=low_bin, y=(p), col=expert.date))+
+  geom_line()+facet_wrap(~HZ)+theme_bw()+
+  geom_line(data=df_all, aes(x=low_bin, y= p), col="black", size=1)+
+  scale_y_continuous(limits = c(0,1), breaks=seq(0,1, by=0.1), name="Probability")+
+  scale_x_continuous(name=paste("Predicted new EVD cases reported (confirmed+probable) during",time_period))+
+  labs(colour= "Expert and date")
 
 
 # save plots
