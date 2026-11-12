@@ -40,7 +40,7 @@ plot_1_fr<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
 
 # plot HZ:istitution
 plot_2<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
-  geom_line()+facet_wrap(~HZ:institution)+theme_bw()+
+  geom_line()+facet_wrap(~HZ+institution)+theme_bw()+
   geom_line(data=df, aes(x=low_bin, y= p.all.experts), col="black", size=1)+
   scale_y_continuous(limits = c(0,1), breaks=seq(0,1, by=0.1), name="p")+
   scale_x_continuous(name=paste("Predicted new EVD cases reported (confirmed+probable) during",time_period))+
@@ -48,7 +48,7 @@ plot_2<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
 
 # plot HZ:last in field
 plot_3<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
-  geom_line()+facet_wrap(~HZ:last.in.field)+theme_bw()+
+  geom_line()+facet_wrap(~HZ+last.in.field)+theme_bw()+
   geom_line(data=df, aes(x=low_bin, y= p.all.experts), col="black", size=1)+
   scale_y_continuous(limits = c(0,1), breaks=seq(0,1, by=0.1), name="p")+
   scale_x_continuous(name=paste("Predicted new EVD cases reported (confirmed+probable) during",time_period))+
@@ -56,7 +56,7 @@ plot_3<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
 
 # plot HZ:experience.ide
 plot_4<-ggplot(data=df, aes(x=low_bin, y=(p), col=expert.date))+
-  geom_line()+facet_wrap(~HZ:experience.ide, ncol = 4)+theme_bw()+
+  geom_line()+facet_wrap(~HZ+experience.ide, ncol = 4)+theme_bw()+
   geom_line(data=df, aes(x=low_bin, y= p.all.experts), col="black", size=1)+
   scale_y_continuous(limits = c(0,1), breaks=seq(0,1, by=0.1), name="p")+
   scale_x_continuous(name=paste("Predicted new EVD cases reported (confirmed+probable) during",time_period))+
