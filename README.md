@@ -1,5 +1,7 @@
 # Expert elicitation
 
+> **Archived.** No longer maintained; last updated October 2025.
+
 Data and `R` code to support the expert elicitation analysis in *Forecasting the geographic spread of Ebola Virus Disease in the Democratic Republic of the Congo during the 2018-2020 outbreak*.
 
 
