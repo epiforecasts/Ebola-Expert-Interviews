@@ -50,7 +50,7 @@ evd_cases_3$report_date<-as.Date(evd_cases_3$report_date)
 min_date<-as.Date("2019-11-01")
 max_date<-as.Date("2020-04-01")
 # add month and year
-evd_cases_3$month<-month(evd_cases_3$report_date,label = T, abbr = FALSE)
+evd_cases_3$month<-lubridate::month(evd_cases_3$report_date,label = T, abbr = FALSE)
 evd_cases_3$year<-year(evd_cases_3$report_date)
 evd_cases_3$month_year<-paste(evd_cases_3$month,evd_cases_3$year)
 # only dates during study period considered, remove unwanted cols
